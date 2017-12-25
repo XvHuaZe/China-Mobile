@@ -1011,6 +1011,8 @@ header {
 }
 .gonggao ul li p{
 	float: left;
+	color: #3eb4fa;
+	font-size: 14px;
 }
 .gonggao ul li em{
     float: left;
@@ -1066,7 +1068,11 @@ header {
 .gz ul li a{
 	float: left;
 	width: 330px;
-	
+	color: #666666;
+	font-size: 14px;
+}
+.gz ul li a:hover{
+	color:#3eb4fa;
 }
 .gz ul li span:last-child{
 
@@ -1096,11 +1102,13 @@ header {
     height: 27px;
 }
 .listbox a{
-	
 	display: block;
     font-size: 15px;
     line-height: 180%;
 	color:#666;
+}
+.listbox a:hover{
+	color:#3eb4fa;
 }
 .footer{
 	width: 100%;
@@ -1112,10 +1120,23 @@ header {
 .row1{
 	color: #666;
 	line-height: 33px;
+	font-size: 12px;
+}
+.row1 a{
+	color: #666;
+	font-size: 12px;
+}
+.row1 span{
+	font-size: 12px;
+}
+.row1 a:hover{
+	color:#3eb4fa;
+	text-decoration:underline;
 }
 .nn{
 	display: inline-block;
 	text-align: center;
+	font-size: 12px;
 }
 .nn2{
 	
