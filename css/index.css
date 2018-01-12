@@ -50,6 +50,38 @@ body{
 .toubuyou a:hover{
 	color: #337ab7;
 }
+.tbyd{
+	position: relative;
+	border:  1px solid #f5f5f5;
+}
+.toubuyou div.tbyd:hover{
+	background: #FFFFFF;
+	border:  1px solid #dfddde;
+	border-bottom: 2px solid #FFFFFF;
+}
+.tbyd:hover .a2_box{
+	display: block;
+}
+.a2_box{
+	display: none;
+    width: 160px;
+    height: 160px;
+    border: 1px solid #dfddde;
+    background: #ffffff;
+    position: absolute;
+    left: 0px;
+    top: 29px;
+    z-index: 111;
+}
+.a2_box img{
+	margin: 20px auto 0;
+    display: block;
+}
+.a2_box p{
+	font: 14px/30px "microsoft yahei";
+    color: #333;
+    text-align: center;
+}
 .dibubiejing{
 	display: block;
 	width: 120px;
