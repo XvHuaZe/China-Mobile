@@ -66,30 +66,53 @@
 	let next = document.querySelector(".youhuiyoujiantou");
 	let prev = document.querySelector(".youhuizuojiantou");
 	let danping = document.querySelector(".youhuiyou-da");
-	let youhui=document.querySelectorAll(".youhuiyou-da .youhuixiao")
-	next.onclick = function() {
-		danping.style.transform = "translateX(-966px)";
-	}
-	prev.onclick = function() {
-		danping.style.transform = "translatex(0)";
-	}
-	let n = 0;
-
-	function stay() {
-		n++;
-		if(n % 2 == 0) {
-			next.onclick()
-		} else {
-			prev.onclick()
+	let box=document.querySelector(".youhuiyou")
+	let n=4
+	let flag=true
+	let dir="right"
+	let st=setInterval(moveFu,2000)
+	function moveFu(){
+		if(dir==="right"){
+			n++
+		}else{
+			n--
 		}
+		danping.style.marginLeft=-n*241+"px"
+		danping.style.transition="all 1s"
 	}
-	let st = setInterval(stay, 3000);
-	danping.onmouseover = function() {
-		clearInterval(st)
+	danping.addEventListener("transitionend",function(){
+		flag=true
+		if(n===11){
+			n=4
+			danping.style.transition="none"
+			danping.style.marginLeft="-964px"
+		}
+		if(n===0){
+			n=7
+			danping.style.transition="none"
+			danping.style.marginLeft="-1687px"
+		}
+	})
+	window.onblur=box.onmouseover=function(){
+		clearInterval(st);
+		}
+	window.onfocus=box.onmouseout=function(){
+		st=setInterval(moveFu,2000)
 	}
-	danping.onmouseout = function() {
-		st = setInterval(stay, 3000);
-	}
+        next.onclick=function(){
+        	   if(flag){
+        	   	dir="right"
+        	   	flag=false
+        	   	moveFu();
+        	   }
+        }
+         prev.onclick=function(){
+         	if(flag){
+         		dir="left"
+         		flag=false
+         		moveFu();
+         	}
+         }
 }
 {
 	{
@@ -169,4 +192,82 @@
 		}, 30)
 	}
 }
+}
+{
+	let nav=document.querySelectorAll(".sanzuo ul li");
+	let navbox=document.querySelectorAll(".sanzuo .navbox");
+	let navBox=document.querySelector(".sanzuo")
+	console.log(navbox)
+	nav.forEach(function(ele,index){
+		ele.onmouseenter=function(){
+			for(let i=0;i<nav.length;i++){
+			nav[i].classList.remove("active")
+			navbox[i].classList.remove("active")
+			}
+			console.log(index)
+			nav[index].classList.add("active")
+			navbox[index].classList.add("active")
+		}
+	})
+	navbox.forEach(function(ele,index){
+		ele.onmouseleave=function(){
+			ele.classList.remove("active")
+		}
+	})
+}
+{
+	let con=document.querySelector(".sousuo .beijing .sousuokuang")
+	con.onfocus=function(){
+		if(con.value == "流量" )	{
+			con.value = ""
+		}
+	}
+	con.onblur = function() {
+			if(con.value === "")
+				con.value = "流量"
+		}
+}
+{
+	let banner=document.querySelectorAll(".f5ls ul li");
+	let pag=document.querySelectorAll(".f5lbxd")
+	let banners=document.querySelector(".f5ls")
+	pag.forEach(function(ele,index){
+		ele.onmouseover=()=>{
+			for(let i=0;i<pag.length;i++){
+				pag[i].classList.remove("active")
+				banner[i].classList.remove("active")
+			}
+			pag[index].classList.add("active")
+			banner[index].classList.add("active")
+			n = index;
+		}
+	})
+	let n = 0;
+
+	function bannerdh(x) {
+		if(x) {
+			n--;
+		} else {
+			n++;
+		}
+		if(n === -1) {
+			n = banner.length - 1
+		}
+		if(n == banner.length) {
+			n = 0
+		}
+		for(let i = 0; i < pag.length; i++) {
+			pag[i].classList.remove("active");
+			banner[i].classList.remove("active");
+		}
+		pag[n].classList.add("active");
+		banner[n].classList.add("active");
+	}
+	let st = setInterval(bannerdh, 3000);
+	banners.onmouseover = function() {
+		clearInterval(st)
+	};
+	banners.onmouseout = function() {
+		st = setInterval(bannerdh, 3000);
+	}
 }
