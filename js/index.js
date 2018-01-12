@@ -209,11 +209,12 @@
 			navbox[index].classList.add("active")
 		}
 	})
-	navbox.forEach(function(ele,index){
-		ele.onmouseleave=function(){
-			ele.classList.remove("active")
+	navBox.onmouseleave=function(){
+		for(let i=0;i<navbox.length;i++){
+			navbox[i].classList.remove("active")	
 		}
-	})
+
+	}
 }
 {
 	let con=document.querySelector(".sousuo .beijing .sousuokuang")
